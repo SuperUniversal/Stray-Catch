@@ -1,0 +1,24 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godogen
+.env
+.venv/
+screenshots/*
+!screenshots/.gdignore
+__pycache__/
+*.pyc
+
+# Unreferenced raw source art (~22 MB)
+assets/sprites/
+assets/HieuUng/chayCat.gif
+
+# IDE / agent configs
+.cursor/
+.claude/
+.agents/
+.gemini/
+
+# Reference game (local dev only)
+GameThamKhao/
