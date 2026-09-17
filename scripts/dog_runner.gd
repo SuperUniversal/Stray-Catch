@@ -49,6 +49,7 @@ func _process(_delta: float) -> void:
 	if sprite_frames and sprite_frames.has_animation(want):
 		if animation != want:
 			play(want)
+		pause()
 		var last: int = maxi(sprite_frames.get_frame_count(want) - 1, 0)
 		frame = clampi(session.visual_frame, 0, last)
 	if dust:

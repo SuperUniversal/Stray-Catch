@@ -24,6 +24,8 @@ func _ready() -> void:
 		lasso_back.call("bind", session, catcher)
 	if lasso_front.has_method("bind"):
 		lasso_front.call("bind", session, catcher)
+	if Engine.get_write_movie_path() != "":
+		session.start()
 	if Engine.get_write_movie_path() == "":
 		return
 	if has_node("PresentationDriver"):
@@ -81,8 +83,9 @@ func act() -> void:
 		return
 	var origin := Vector2(640, 490)
 	if catcher and catcher.has_method("tool_tip_global"):
-		var tip: Vector2 = GameLayout.to_design(catcher.call("tool_tip_global"), get_viewport_rect().size)
-		origin = Vector2(tip.x + (session.aim_x - 640.0) * 0.10, tip.y - 62.0)
+		var tip = catcher.call("tool_tip_global")
+		var dtip: Vector2 = GameLayout.to_design(tip, get_viewport_rect().size)
+		origin = Vector2(dtip.x + (session.aim_x - 640.0) * 0.10, dtip.y - 62.0)
 	session.tap(origin)
 
 

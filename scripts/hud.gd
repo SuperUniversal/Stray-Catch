@@ -187,7 +187,7 @@ func _layout() -> void:
 	_lasso.position = Vector2(plaque.position.x + plaque.size.x - 72.0, plaque.position.y + 8.0)
 	_spark.position = Vector2((vp.x - _spark.size.x) * 0.5, vp.y * 0.42)
 	_miss.position = Vector2((vp.x - _miss.size.x) * 0.5, vp.y * 0.38)
-	_tug.position = Vector2((vp.x - 280.0) * 0.5, 86.0)
+	_tug.position = Vector2((vp.x - 280.0) * 0.5, 118.0)
 	_overlay.position = Vector2.ZERO
 	_overlay.size = vp
 	_overlay_title.position = Vector2((vp.x - 520.0) * 0.5, vp.y * 0.28)

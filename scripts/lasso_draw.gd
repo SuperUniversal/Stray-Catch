@@ -61,7 +61,7 @@ func _draw() -> void:
 func _tip_design() -> Vector2:
 	var vp: Vector2 = get_viewport_rect().size
 	if catcher and catcher.has_method("tool_tip_global"):
-		var g: Vector2 = catcher.call("tool_tip_global")
+		var g = catcher.call("tool_tip_global")
 		return GameLayout.to_design(g, vp)
 	return Vector2(640, 490)
 

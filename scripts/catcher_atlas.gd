@@ -2,7 +2,7 @@ class_name CatcherAtlas
 extends RefCounted
 ## toolTip = dinh can sat gang (sau khi Python xoa vong cam).
 
-const CACHE: Dictionary = {}
+static var CACHE: Dictionary = {}
 
 
 static func tool_tip(tex: Texture2D) -> Vector2:
