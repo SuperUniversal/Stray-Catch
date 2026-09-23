@@ -1,0 +1,12 @@
+{
+  "prompt": "",
+  "intent": "Show only one lasso: a single rope from the hand to the loop, with no second pole or aim ring.",
+  "decomposition": [
+    "Write sprite-ai into C:/Users/PC/.cursor/mcp.json",
+    "Keep the key out of the project .cursor/mcp.json"
+  ],
+  "files": [
+    "C:/Users/PC/.cursor/mcp.json"
+  ],
+  "acceptance": "lasso_draw.gd draws one quadratic rope to the loop rim and does not draw the gray pole or the aim reticle."
+}
