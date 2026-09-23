@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bcoseu4yyw3s2"]
+
+[ext_resource type="Texture2D" uid="uid://hcl65v3q1g4a" path="res://assets/HieuUng/dust/dust_25.png" id="d01"]
+[ext_resource type="Texture2D" uid="uid://cm6sukccqbqtw" path="res://assets/HieuUng/dust/dust_26.png" id="d02"]
+[ext_resource type="Texture2D" uid="uid://bvx228jjyqxa2" path="res://assets/HieuUng/dust/dust_27.png" id="d03"]
+[ext_resource type="Texture2D" uid="uid://b1ki44gcf4xvi" path="res://assets/HieuUng/dust/dust_28.png" id="d04"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("d01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("d02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("d03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("d04")
+}],
+"loop": 1,
+"name": &"puff",
+"speed": 8.0
+}]
