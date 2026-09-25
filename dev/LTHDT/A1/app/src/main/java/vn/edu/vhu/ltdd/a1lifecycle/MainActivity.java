@@ -14,31 +14,17 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.Locale;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "A1_231A290021";
-    private static final String[] CALLBACKS = {
-            "onCreate",
-            "onStart",
-            "onResume",
-            "onPause",
-            "onStop",
-            "onRestart",
-            "onDestroy",
-            "onSaveInstanceState"
-    };
 
     private TextView tvLog;
-    private TextView tvCounts;
     private final StringBuilder history = new StringBuilder();
-    private final LinkedHashMap<String, Integer> counts = new LinkedHashMap<>();
     private int step = 0;
 
-    /** Ghi một sự kiện ra Logcat, màn hình và bảng đếm (NC1). */
+    /** Ghi một sự kiện ra Logcat và hiển thị lên màn hình. */
     private void logEvent(String event) {
         step++;
         String time = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault())
@@ -47,41 +33,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, line);
         history.append(line).append('\n');
         if (tvLog != null) {
-            tvLog.setText(history.toString());
+            tvLog.setText(history);
         }
-        bumpCount(callbackName(event));
-    }
-
-    private void resetCounts() {
-        counts.clear();
-        for (String name : CALLBACKS) {
-            counts.put(name, 0);
-        }
-        renderCounts();
-    }
-
-    private void bumpCount(String name) {
-        counts.put(name, counts.getOrDefault(name, 0) + 1);
-        renderCounts();
-    }
-
-    private void renderCounts() {
-        if (tvCounts == null) {
-            return;
-        }
-        StringBuilder table = new StringBuilder();
-        for (Map.Entry<String, Integer> entry : counts.entrySet()) {
-            if (table.length() > 0) {
-                table.append('\n');
-            }
-            table.append(entry.getKey()).append(": ").append(entry.getValue());
-        }
-        tvCounts.setText(table.toString());
-    }
-
-    private static String callbackName(String event) {
-        int space = event.indexOf(' ');
-        return space < 0 ? event : event.substring(0, space);
     }
 
     @Override
@@ -96,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         tvLog = findViewById(R.id.tvLog);
-        tvCounts = findViewById(R.id.tvCounts);
-        resetCounts();
-
         Button btnClear = findViewById(R.id.btnClear);
         Button btnCrash = findViewById(R.id.btnCrash);
         Button btnFinish = findViewById(R.id.btnFinish);
@@ -107,19 +57,13 @@ public class MainActivity extends AppCompatActivity {
             history.setLength(0);
             step = 0;
             tvLog.setText("");
-            resetCounts();
             Log.i(TAG, "---- Đã xóa lịch sử ----");
         });
 
-        // NC2: bắt NullPointerException, không để app crash.
+        // Nút cố ý gây lỗi để luyện đọc stack trace trong Logcat
         btnCrash.setOnClickListener(v -> {
-            try {
-                String ten = null;
-                Log.d(TAG, "Độ dài tên: " + ten.length());
-            } catch (NullPointerException e) {
-                Log.e(TAG, "Bắt được lỗi NullPointerException", e);
-                Toast.makeText(this, R.string.caught_null, Toast.LENGTH_SHORT).show();
-            }
+            String ten = null;
+            Log.d(TAG, "Độ dài tên: " + ten.length()); // NullPointerException
         });
 
         // finish() để quan sát onDestroy (Android 12+: Back không hủy Activity gốc)

@@ -6,5 +6,4 @@
     <string name="clear">Xóa log</string>
     <string name="crash">Gây lỗi</string>
     <string name="finish">Thoát</string>
-    <string name="caught_null">Đã bắt lỗi: tên đang null</string>
 </resources>
