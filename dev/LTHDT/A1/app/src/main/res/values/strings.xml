@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">A1_231A290021</string>
+    <string name="title">Lab A1 – Vòng đời Activity</string>
+    <string name="student">Lê Nguyễn Hoàng Nam – MSSV 231A290021</string>
+    <string name="clear">Xóa log</string>
+    <string name="crash">Gây lỗi</string>
+    <string name="finish">Thoát</string>
+    <string name="caught_null">Đã bắt lỗi: tên đang null</string>
+</resources>
